@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby 
+
+require_relative "../lib/dessert"
+Dessert::CLI.new.start
+
+
+
+
+
+#executable file
+#shebang line is the first line
+#require environment file
