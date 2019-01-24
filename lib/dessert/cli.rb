@@ -13,7 +13,8 @@ class Dessert::CLI
         #scrape the cookies page
         #how to call the scraper method 
         url = "https://proteinbakery.com/collections/cookies"
-        Dessert::Scraper.scrape_categories(url)
+        categories = Dessert::Scraper.scrape_categories(url)
+        puts categories[1]
       when "brownies" 
         puts "you selected brownies"
         #scrape the brownies page
