@@ -1,3 +1,5 @@
+#cli is the only place that talks to the user 
+
 class Dessert::CLI 
   
   def start #instance method
@@ -14,7 +16,8 @@ class Dessert::CLI
         #how to call the scraper method 
         url = "https://proteinbakery.com/collections/cookies"
         categories = Dessert::Scraper.scrape_categories(url)
-        puts categories[1]
+        puts categories[1].name 
+        puts categories[1].url 
       when "brownies" 
         puts "you selected brownies"
         #scrape the brownies page

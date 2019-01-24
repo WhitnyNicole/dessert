@@ -4,7 +4,7 @@ class Dessert::Category
   @@all = []
   def initialize(name, url)
     @name = name
-    @url = url 
+    @url = "https://proteinbakery.com" + url 
     @@all << self #remembering the object
   end 
   

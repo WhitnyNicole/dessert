@@ -9,8 +9,10 @@ class Dessert::Scraper
     name = webpage.css("span.title")[0].text #returns "Chocolate Chocolate Chip Cookie"
     array_of_links = webpage.css("span.title")
     
-    array_of_links.each do |link|
-      Category.new(link.text, ?)
+    array_of_links.map do |link|
+      Dessert::Category.new(link.text, link.attributes["href"].value) 
+      #link.attributes["href"].value, will give link
+      #return value will now be an array of objects because .map is used 
     end 
     
   end 
