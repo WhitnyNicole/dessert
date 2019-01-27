@@ -42,7 +42,13 @@ class Dessert::CLI
       
    def choose_category
      puts "\nChoose a team by selecting a number:" #adding a line break by using \n
-     input = gets.strip.to_i
+     input = gets.strip.to_i #strip removes whitespace on both sides
+     max = Dessert::Category.all.length
+     if input.between?(0,max)
+     else
+       puts "\nPlease put in a valid input"
+       choose_category
+     end 
    end 
   
    def scrape_teams #this method is calling my scraper class to scrape
@@ -52,4 +58,4 @@ class Dessert::CLI
     Dessert::Scraper.scrape_categories(url) #should make objects
    end 
 end 
-
+ 
