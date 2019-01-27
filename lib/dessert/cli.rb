@@ -15,12 +15,15 @@ class Dessert::CLI
         #scrape the teams page
         url = "http://www.nba.com/teams"
         #how to call the scraper method 
-        Dessert::Scraper.scrape_categories(url)
-        categories = Dessert::Category.all
+        Dessert::Scraper.scrape_categories(url) #should make objects
+        categories = Dessert::Category.all #array of objects
         
         puts "Choose the team you want more information on"
-        puts categories[0].name
-        puts categories[0].url 
+        
+        categories.each.with_index(0) do |category, index|
+          puts "#{index}. #{category.name}"  #printing out the category names
+        end 
+        
       when "schedule" 
         puts "you selected schedule"
         #scrape the schedule page
@@ -35,5 +38,4 @@ class Dessert::CLI
         puts "Invalid"
     end 
   end 
-  
 end 
