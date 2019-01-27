@@ -19,5 +19,8 @@ class Dessert::Scraper
   
   end 
   
+  def self.scrape_items(category) #category is representing an object
+    webpage = Nokogiri::HTML(open(category.url)) #opens webpage
+  end 
 end 
 

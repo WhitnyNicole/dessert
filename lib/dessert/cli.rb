@@ -53,8 +53,8 @@ class Dessert::CLI
      end 
    end 
   
-   def display_category_items(input)
-     
+   def display_category_items(category)
+     Dessert::Scraper.scrape_items(category)
    end 
    
    def scrape_teams #this method is calling my scraper class to scrape
