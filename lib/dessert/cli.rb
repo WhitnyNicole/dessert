@@ -11,12 +11,12 @@ class Dessert::CLI
     puts input
     case input #case statement 
       when "team"
-        puts "you selected team"
+        puts "These are the NBA teams: "
         #scrape the teams page
         url = "http://www.nba.com/teams"
         #how to call the scraper method 
         categories = Dessert::Scraper.scrape_categories(url)
-        puts categories[0] 
+        puts categories 
         # puts categories[0].url 
       when "brownies" 
         puts "you selected brownies"

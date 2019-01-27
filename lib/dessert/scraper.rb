@@ -11,8 +11,8 @@ class Dessert::Scraper
     array_of_teams = section.css("div.team__list") #returns team name
     
     array_of_teams.map do |team|
-      binding.pry
-      # Dessert::Category.new(team.text)
+      team.text
+    # Dessert::Category.new(team.text)
     end 
     #using .map return value is all of the teams 
   
