@@ -45,12 +45,18 @@ class Dessert::CLI
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = Dessert::Category.all.length
      if input.between?(0,max)
+       category = Dessert::Category.all[input-1]
+       display_category_items(category)
      else
        puts "\nPlease put in a valid input"
        choose_category
      end 
    end 
   
+   def display_category_items(input)
+     
+   end 
+   
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
     url = "http://www.nba.com/teams"
