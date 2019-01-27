@@ -15,16 +15,19 @@ class Dessert::CLI
         #scrape the teams page
         url = "http://www.nba.com/teams"
         #how to call the scraper method 
-        categories = Dessert::Scraper.scrape_categories(url)
+        Dessert::Scraper.scrape_categories(url)
+        categories = Dessert::Category.all
+        
+        puts "Choose the team you want more information on"
         puts categories[0].name
         puts categories[0].url 
       when "schedule" 
         puts "you selected schedule"
-        #scrape the brownies page
+        #scrape the schedule page
         #url https://stats.nba.com/schedule/
       when "standings"
         puts "you selected standings"
-        #scrape the blondies page
+        #scrape the standings page
         #url http://www.nba.com/standings#/
       when "exit"
         puts "Goodbye"
