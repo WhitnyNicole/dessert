@@ -16,8 +16,8 @@ class Dessert::CLI
         url = "http://www.nba.com/teams"
         #how to call the scraper method 
         categories = Dessert::Scraper.scrape_categories(url)
-        puts categories 
-        # puts categories[0].url 
+        puts categories[0].name
+        puts categories[0].url 
       when "brownies" 
         puts "you selected brownies"
         #scrape the brownies page

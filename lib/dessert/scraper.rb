@@ -7,14 +7,15 @@ class Dessert::Scraper
     
     webpage = Nokogiri::HTML(open(url)) #opens webpage
     section = webpage.css("div.team__list_wrapper") #list of teams
+ 
     
-    array_of_teams = section.css("div.team__list") #returns team name
+    array_of_teams = section.css("div.team__list a") #returns team name
+    
     
     array_of_teams.map do |team|
-      team.text
-    # Dessert::Category.new(team.text)
+    Dessert::Category.new(team.text, team.attributes["href"].value)
     end 
-    #using .map return value is all of the teams 
+    #using .map return value is an array of objects (all the teams)
   
   end 
   
