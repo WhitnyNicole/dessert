@@ -1,4 +1,4 @@
-class Dessert::Category
+class NBA::Category
   
   attr_accessor :name, :url, :items
   @@all = []

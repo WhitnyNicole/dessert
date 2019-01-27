@@ -1,4 +1,4 @@
-class Dessert::Scraper
+class NBA::Scraper
   
   def self.scrape_categories(url)
     #section.css("span.title")[0].text returns "chocolate chocolate chip cookie"
@@ -13,7 +13,7 @@ class Dessert::Scraper
     
     
     array_of_teams.map do |team|
-    Dessert::Category.new(team.text, team.attributes["href"].value)
+    NBA::Category.new(team.text, team.attributes["href"].value)
     end 
     #using .map return value is an array of objects (all the teams)
   

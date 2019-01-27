@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby 
 
-require_relative "../lib/dessert"
-Dessert::CLI.new.start
+require_relative "../lib/nba"
+NBA::CLI.new.start
 
 
 
