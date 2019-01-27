@@ -8,7 +8,7 @@ class Dessert::CLI
   end 
   
   def menu
-    puts "What type information would you like?"
+    puts "What type of information would you like?"
     puts "Team, Schedule, Standings?"
     puts "Type the item of your choice"
     input = gets.strip.downcase
@@ -17,6 +17,7 @@ class Dessert::CLI
         puts "These are the NBA teams: "
         scrape_teams
         list_categories
+        choose_category
       when "schedule" 
         puts "you selected schedule"
         #scrape the schedule page
@@ -28,7 +29,8 @@ class Dessert::CLI
       when "exit"
         puts "Goodbye"
       else
-        puts "Invalid"
+        puts "Sorry, I didn't understand that input"
+        menu
     end 
   end 
   
@@ -37,14 +39,17 @@ class Dessert::CLI
           puts "#{index}. #{category.name}"  #printing out the category names
         end 
       end 
+      
+   def choose_category
+     puts "\nChoose a team by selecting a number:" #adding a line break by using \n
+     input = gets.strip.to_i
+   end 
   
-  def scrape_teams #this method is calling my scraper class to scrape
-    #scrape the teams page
+   def scrape_teams #this method is calling my scraper class to scrape
+     #scrape the teams page
     url = "http://www.nba.com/teams"
     #how to call the scraper method 
     Dessert::Scraper.scrape_categories(url) #should make objects
-  end 
-  
-
-  end 
+   end 
 end 
+
