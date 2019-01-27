@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "dessert/version"
+require "nba/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "dessert"
-  spec.version       = Dessert::VERSION
+  spec.name          = "nba"
+  spec.version       = NBA::VERSION
   spec.authors       = ["'Whitny Edwards'"]
   spec.email         = ["'wne4e2@gmail.com'"]
 
-  spec.summary       = "A gem that scrapes dessert options"
-  spec.description   = "A gem that scrapes protein dessert options"
+  spec.summary       = "A gem that scrapes NBA information"
+  spec.description   = "A gem that scrapes NBA information"
   spec.homepage      = "https://github.com/WhitnyNicole/dessert"
   spec.license       = "MIT"
 
