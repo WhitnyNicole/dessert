@@ -3,17 +3,17 @@
 class Dessert::CLI 
   
   def start #instance method
-    puts "Welcome to the Protein Bakery"
-    puts "What type of dessert would you like?"
-    puts "Cookies, Brownies, Blondies, Minis?"
-    puts "Type the name of your choice"
+    puts "Welcome to NBA.com"
+    puts "What type information would you like?"
+    puts "Team, next, next, next?"
+    puts "Type the item of your choice"
     input = gets.strip.downcase
     puts input
     case input #case statement 
-      when "cookies"
-        puts "you selected cookies"
-        #scrape the cookies page
-        url = "https://proteinbakery.com/collections/cookies"
+      when "team"
+        puts "you selected team"
+        #scrape the teams page
+        url = "http://www.nba.com/teams"
         #how to call the scraper method 
         categories = Dessert::Scraper.scrape_categories(url)
         puts categories[0] 

@@ -6,20 +6,17 @@ class Dessert::Scraper
     #must include require "nokogiri"
     
     webpage = Nokogiri::HTML(open(url)) #opens webpage
-    section = webpage.css("div.info")
-    array_of_links = section.css("span.title")
+    section = webpage.css("div.team__list_wrapper") #list of teams
     
-      
-    array_of_links.map do |link|
+    array_of_teams = section.css("div.team__list") #returns team name
+    
+    array_of_teams.map do |team|
       binding.pry
-      link.text
-      Dessert::Category.new(link.text, link.attributes["href"].value) 
-      
-      
-      #link.attributes["href"].value, will give link
-      #return value will now be an array of objects because .map is used 
+      # Dessert::Category.new(team.text)
     end 
-    
+    #using .map return value is all of the teams 
+  
   end 
   
 end 
+
