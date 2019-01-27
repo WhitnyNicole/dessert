@@ -5,7 +5,7 @@ class Dessert::CLI
   def start #instance method
     puts "Welcome to NBA.com"
     puts "What type information would you like?"
-    puts "Team, next, next, next?"
+    puts "Team, Schedule, Standings?"
     puts "Type the item of your choice"
     input = gets.strip.downcase
     puts input
@@ -18,18 +18,14 @@ class Dessert::CLI
         categories = Dessert::Scraper.scrape_categories(url)
         puts categories[0].name
         puts categories[0].url 
-      when "brownies" 
-        puts "you selected brownies"
+      when "schedule" 
+        puts "you selected schedule"
         #scrape the brownies page
-        #url https://proteinbakery.com/collections/brownies
-      when "blondies"
-        puts "you selected blondies"
+        #url https://stats.nba.com/schedule/
+      when "standings"
+        puts "you selected standings"
         #scrape the blondies page
-        #url https://proteinbakery.com/collections/blondies
-      when "minis"
-        puts "you selected minis"
-        #scrape the minis page
-        #url https://proteinbakery.com/collections/minis
+        #url http://www.nba.com/standings#/
       when "exit"
         puts "Goodbye"
       else
