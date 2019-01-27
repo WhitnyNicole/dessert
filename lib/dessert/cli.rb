@@ -41,14 +41,17 @@ class Dessert::CLI
       end 
       
    def choose_category
-     puts "\nChoose a team by selecting a number:" #adding a line break by using \n
+     puts "\nChoose a team by selecting a number 1-30:" #adding a line break by using \n
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = Dessert::Category.all.length
      if input.between?(1,max)
        category = Dessert::Category.all[input-1]
        display_category_items(category)
+       puts "#{category.name}"
+     elsif input == "exit"
+     #allow this method to end
      else
-       puts "\nPlease put in a valid input"
+       puts "\nOops, please put in a valid input"
        choose_category
      end 
    end 
