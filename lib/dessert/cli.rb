@@ -48,11 +48,23 @@ class Dessert::CLI
        category = Dessert::Category.all[input-1]
        display_category_items(category)
        puts "#{category.name}"
+       want_more_info(category)
      elsif input == "exit"
      #allow this method to end
      else
        puts "\nOops, please put in a valid input"
        choose_category
+     end 
+   end 
+   
+   def want_more_info(category)
+     puts "Want More Info? (Y/N)"
+     input = gets.strip.downcase
+     if input == "y"
+       puts "here are the current players:"
+       #2nd scrape
+     else 
+       puts "No worries! Visit us again soon."
      end 
    end 
   
