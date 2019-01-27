@@ -4,6 +4,10 @@ class Dessert::CLI
   
   def start #instance method
     puts "Welcome to NBA.com"
+    menu
+  end 
+  
+  def menu
     puts "What type information would you like?"
     puts "Team, Schedule, Standings?"
     puts "Type the item of your choice"
@@ -11,13 +15,8 @@ class Dessert::CLI
     case input #case statement 
       when "team"
         puts "These are the NBA teams: "
-        
         scrape_teams
         list_categories
-       
-        
-        
-        
       when "schedule" 
         puts "you selected schedule"
         #scrape the schedule page
@@ -33,6 +32,12 @@ class Dessert::CLI
     end 
   end 
   
+   def list_categories
+        Dessert::Category.all.each.with_index(0) do |category, index|
+          puts "#{index}. #{category.name}"  #printing out the category names
+        end 
+      end 
+  
   def scrape_teams #this method is calling my scraper class to scrape
     #scrape the teams page
     url = "http://www.nba.com/teams"
@@ -40,12 +45,6 @@ class Dessert::CLI
     Dessert::Scraper.scrape_categories(url) #should make objects
   end 
   
-  def list_categories
-    categories = Dessert::Category.all #array of objects
-        puts "Choose the team you want more information on"
-        
-        categories.each.with_index(0) do |category, index|
-          puts "#{index}. #{category.name}"  #printing out the category names
-        end 
-      end 
+
+  end 
 end 
