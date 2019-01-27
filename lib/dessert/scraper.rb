@@ -21,6 +21,10 @@ class Dessert::Scraper
   
   def self.scrape_items(category) #category is representing an object
     webpage = Nokogiri::HTML(open(category.url)) #opens webpage
+    items = webpage.css("a p.nba-player-index__name")
+    items.each do |item_link|
+      category.items << item_link.text
+    end 
   end 
 end 
 

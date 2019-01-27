@@ -1,10 +1,11 @@
 class Dessert::Category
   
-  attr_accessor :name, :url
+  attr_accessor :name, :url, :items
   @@all = []
   def initialize(name, url)
     @name = name
     @url = "http://www.nba.com" + url 
+    @items = []
     @@all << self #remembering the object
   end 
   

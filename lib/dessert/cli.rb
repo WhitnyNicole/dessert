@@ -35,7 +35,7 @@ class Dessert::CLI
   end 
   
    def list_categories
-        Dessert::Category.all.each.with_index(0) do |category, index|
+        Dessert::Category.all.each.with_index(1) do |category, index|
           puts "#{index}. #{category.name}"  #printing out the category names
         end 
       end 
@@ -44,7 +44,7 @@ class Dessert::CLI
      puts "\nChoose a team by selecting a number:" #adding a line break by using \n
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = Dessert::Category.all.length
-     if input.between?(0,max)
+     if input.between?(1,max)
        category = Dessert::Category.all[input-1]
        display_category_items(category)
      else
@@ -55,6 +55,7 @@ class Dessert::CLI
   
    def display_category_items(category)
      Dessert::Scraper.scrape_items(category)
+     category.items
    end 
    
    def scrape_teams #this method is calling my scraper class to scrape
