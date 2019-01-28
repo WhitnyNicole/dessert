@@ -57,16 +57,16 @@ class NBA::CLI
      end 
    end 
    
-   def want_more_info(category)
-     puts "Want More Info? (Y/N)"
-     input = gets.strip.downcase
-     if input == "y"
-       puts "here are the current players:"
-       #2nd scrape
-     else 
-       puts "No worries! Visit us again soon."
-     end 
-   end 
+  def want_more_info(category)
+    puts "Want More Info? (Y/N)"
+    input = gets.strip.downcase
+    if input == "y"
+      puts "here are the current players:"
+      #2nd scrape
+    else 
+      puts "No worries! Visit us again soon."
+    end 
+  end 
   
    def display_category_items(category)
      NBA::Scraper.scrape_items(category)
