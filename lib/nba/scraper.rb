@@ -18,18 +18,15 @@ class NBA::Scraper
   
   end 
   
-    def self.scrape_calendar(url) 
-        webpage = Nokogiri::HTML(open(url)) #opens webpage
-        section = webpage.css("div.team__list_wrapper") #list of teams
- 
-    
-        array_of_teams = section.css("div.team__list a") #returns team name
-    
-    
-        array_of_teams.map do |team|
-        NBA::Category.new(team.text, team.attributes["href"].value)
-    end 
-  end 
+    # def self.scrape_calendar(url) 
+    #     webpage = Nokogiri::HTML(open(url)) #opens webpage
+    #     binding.pry
+    #     section = webpage.css("div.article__detail--header-wrapper") 
+    #     array_of_news = section.css("div.article__detail--header") #returns team name
+    #     # array_of_teams.map do |team|
+    #     # NBA::Category.new(team.text, team.attributes["href"].value)
+    # end 
+  
   
   
   def self.scrape_items(category) #category is representing an object

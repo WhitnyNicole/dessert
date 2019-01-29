@@ -20,6 +20,8 @@ class NBA::CLI
         choose_category
       when "schedule" 
         puts "you selected schedule"
+        # scrape_schedule
+        # list_categories
         #scrape the schedule page
         #url https://stats.nba.com/schedule/
       when "standings"
@@ -80,13 +82,13 @@ class NBA::CLI
     NBA::Scraper.scrape_categories(url) #should make objects
    end 
    
-   def scrape_schedule
-     url = "https://stats.nba.com/schedule/"
-     NBA::Scraper.scrape_categories(url)
-   end 
+  # def scrape_schedule
+  #   url = "https://www.nba.com/news"
+  #   NBA::Scraper.scrape_calendar(url)
+  # end 
  
-   def scrape_standings
-     url = "https://www.nba.com/standings"
-     NBA::Scraper.scrape_categories(url)
-   end 
+  # def scrape_standings
+  #   url = "https://www.nba.com/standings"
+  #   NBA::Scraper.scrape_categories(url)
+  # end 
 end 
