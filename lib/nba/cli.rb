@@ -75,9 +75,18 @@ class NBA::CLI
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
-    url = "http://www.nba.com/teams"
+    url = "https://www.nba.com/teams"
     #how to call the scraper method 
     NBA::Scraper.scrape_categories(url) #should make objects
    end 
-end 
+   
+   def scrape_schedule
+     url = "https://stats.nba.com/schedule/"
+     NBA::Scraper.scrape_categories(url)
+   end 
  
+   def scrape_standings
+     url = "https://www.nba.com/standings"
+     NBA::Scraper.scrape_categories(url)
+   end 
+end 
