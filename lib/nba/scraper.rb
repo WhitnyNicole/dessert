@@ -37,7 +37,7 @@ class NBA::Scraper
     end 
   end 
     
-  def self.scrape_players(url)
+  def self.scrape_players(url) #class method 
      webpage = Nokogiri::HTML(open(url)) 
      players = webpage.css("section.nba-player-index__trending-item.small-4.medium-3.large-2.team-atl-hawks")
      players.each do |player|
