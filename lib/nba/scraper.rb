@@ -18,7 +18,18 @@ class NBA::Scraper
     webpage = Nokogiri::HTML(open(category.url)) #opens webpage
     items = webpage.css("a p.nba-player-index__name")
     items.each do |item_link|
-      category.items << item_link.text
+      #nba = NBA::NBA.new which is creating an instance
+      
+      # category.items << item_link.text
+      #try to find css selector that returns the card of the full player info (position, height, weight)
+      
+      #Assigning object attributes
+      #then add nba.position = item_link.css("")
+      #nba.position = position[0]
+      
+      #how to associate nba and category 
+      #this is an instance of a category --> category.players << nba
+      
     end 
   end 
     

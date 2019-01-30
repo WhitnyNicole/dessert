@@ -1,6 +1,7 @@
 class NBA::Category
   
   attr_accessor :name, :url, :items
+  attr_reader :players
   @@all = []
   def initialize(name, url)
     @name = name
