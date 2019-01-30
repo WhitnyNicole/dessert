@@ -1,4 +1,4 @@
-class NBA::NBA
+class NBA::Players
   #rename player 
   
    attr_accessor :name, :position, :height, :weight, :category

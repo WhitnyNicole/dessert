@@ -1,4 +1,4 @@
-class NBA::Category
+class NBA::Team
   
 #rename team 
   

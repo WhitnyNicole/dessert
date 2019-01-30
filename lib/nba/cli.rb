@@ -26,7 +26,7 @@ class NBA::CLI
   end 
   
    def list_categories
-        NBA::Category.all.each.with_index(1) do |category, index|
+        NBA::Team.all.each.with_index(1) do |category, index|
           puts "#{index}. #{category.name}"  #printing out the category names
         end 
       end 
@@ -34,9 +34,9 @@ class NBA::CLI
    def choose_category
      puts "\nChoose a team by selecting a number 1-30:" #adding a line break by using \n
      input = gets.strip.to_i #strip removes whitespace on both sides
-     max = NBA::Category.all.length
+     max = NBA::Team.all.length
      if input.between?(1,max)
-       category = NBA::Category.all[input-1]
+       category = NBA::Team.all[input-1]
        display_category_items(category)
        puts "#{category.name}"
        want_more_info(category)
@@ -53,7 +53,7 @@ class NBA::CLI
     input = gets.strip.downcase
     if input == "yes"
       puts "Here are the current players:"
-      NBA::Scraper.scrape_players(category.url)
+      NBA::Scraper.scrape_player(category.url)
     else 
       puts "No worries! Visit us again soon."
     end 

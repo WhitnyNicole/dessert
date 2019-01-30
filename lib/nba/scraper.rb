@@ -7,7 +7,7 @@ class NBA::Scraper
     section = webpage.css("div.team__list_wrapper") #list of teams
     array_of_teams = section.css("div.team__list a") #returns team name
     array_of_teams.map do |team|
-    NBA::Category.new(team.text, team.attributes["href"].value)
+    NBA::Team.new(team.text, team.attributes["href"].value)
     end 
     #using .map return value is an array of objects (all the teams)
   
@@ -33,11 +33,11 @@ class NBA::Scraper
     end 
   end 
     
-  def self.scrape_players(url) #class method 
+  def self.scrape_player(url) #class method 
      webpage = Nokogiri::HTML(open(url)) 
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
-    NBA::NBA.new(nodeset.text)
+    NBA::Players.new(nodeset.text)
       puts "#{nodeset.text}"
     end 
  end 
