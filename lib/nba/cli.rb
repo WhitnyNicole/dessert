@@ -75,4 +75,21 @@ class NBA::CLI
     #how to call the scraper method 
     NBA::Scraper.scrape_categories(url) #should make objects
    end 
+   
+   def second_menu
+   puts "Would you like to look at another team? Type 'Yes'"
+   puts "Would you like to go to the start? Type 'Start'"
+   puts "Would you like to exit? Type 'Exit'"
+   input = gets.strip.upcase
+    if input == "Yes"
+      list_categories
+      choose_category
+    elsif input == "Start"
+      menu
+    elsif input == "Exit"
+      puts "Goodbye!"
+    else
+      puts "Sorry I couldn't understand that command"
+      second_menu
+    end
 end 
