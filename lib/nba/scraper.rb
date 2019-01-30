@@ -10,14 +10,20 @@ class NBA::Scraper
     NBA::Team.new(team.text, team.attributes["href"].value)
     end 
     #using .map return value is an array of objects (all the teams)
-  
   end
   
   
   def self.scrape_items(category) #category is representing an object
-    webpage = Nokogiri::HTML(open(category.url)) #opens webpage
-    items = webpage.css("a p.nba-player-index__name")
-    items.each do |item_link|
+    webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
+    players = webpage.css("p.nba-player-index__name")
+    players.each do |nodeset|
+    NBA::Players.new(nodeset.text)
+      puts "#{nodeset.text}"
+    end 
+      
+      # schdule = webpage.css("team-info-stats")[0].next_element.css("a").text #see full scheudle #don't need this 
+      scheudle_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
+      
       #nba = NBA::NBA.new which is creating an instance
       
       # category.items << item_link.text
@@ -30,15 +36,6 @@ class NBA::Scraper
       #how to associate nba and category 
       #this is an instance of a category --> category.players << nba
       
-    end 
-  end 
-    
-  def self.scrape_player(url) #class method 
-     webpage = Nokogiri::HTML(open(url)) 
-    players = webpage.css("p.nba-player-index__name")
-    players.each do |nodeset|
-    NBA::Players.new(nodeset.text)
-      puts "#{nodeset.text}"
     end 
   end 
 end 

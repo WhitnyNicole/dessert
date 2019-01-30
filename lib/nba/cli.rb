@@ -59,8 +59,9 @@ class NBA::CLI
     end 
   end 
   
-   def display_category_items(category)
-     NBA::Scraper.scrape_items(category)
+   def display_category_items(category) #scrape players 
+     NBA::Scraper.scrape_items(category) # "category" returns object ID, name and team url and scraper method returns player names
+     binding.pry
      #puts here are the players for #{category.name}\n"
     # category.nba.each.with_index(1) do |deal, index|
     # puts "\n#{index}. #(deal.product)"
@@ -92,4 +93,5 @@ class NBA::CLI
       puts "Sorry I couldn't understand that command"
       second_menu
     end
+  end 
 end 
