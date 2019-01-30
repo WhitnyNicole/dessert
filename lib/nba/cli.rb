@@ -8,26 +8,12 @@ class NBA::CLI
   end 
   
   def menu
-    puts "What type of information would you like?"
-    puts "Team, Schedule, Standings?"
-    puts "Type the item of your choice"
+    puts "Would you like to see the current teams?"
+    puts "Type yes or exit"
     input = gets.strip.downcase
     case input #case statement 
-      when "team"
-        puts "These are the NBA teams: "
-        scrape_teams
-        list_categories
-        choose_category
-      when "schedule" 
-        puts "you selected schedule"
-        # scrape_schedule
-        # list_categories
-        #scrape the schedule page
-        #url https://stats.nba.com/schedule/
-      when "standings"
-        puts "you selected standings"
-        #scrape the standings page
-        #url http://www.nba.com/standings#/
+      when "yes"
+        puts "These are the current NBA teams: "
       when "exit"
         puts "Goodbye"
       else
@@ -81,14 +67,4 @@ class NBA::CLI
     #how to call the scraper method 
     NBA::Scraper.scrape_categories(url) #should make objects
    end 
-   
-  # def scrape_schedule
-  #   url = "https://www.nba.com/news"
-  #   NBA::Scraper.scrape_calendar(url)
-  # end 
- 
-  # def scrape_standings
-  #   url = "https://www.nba.com/standings"
-  #   NBA::Scraper.scrape_categories(url)
-  # end 
 end 
