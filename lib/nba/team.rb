@@ -15,4 +15,13 @@ class NBA::Team
   def self.all
     @@all
   end 
+  
+  def add_players
+    @players << player
+    player.team = self 
+  end 
+  
+  def players
+    @players
+  end 
 end 
