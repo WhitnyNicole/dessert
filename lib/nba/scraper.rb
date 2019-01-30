@@ -41,4 +41,11 @@ class NBA::Scraper
       puts "#{nodeset.text}"
     end 
  end 
+ 
+ def second_menu
+   puts "would you like to look at another team? Type Y"
+   puts "or would you like to go to the main screen? Type N"
+   puts "would you like to exit? Type E"
+ end 
+   
 end 

@@ -66,7 +66,8 @@ class NBA::CLI
     # puts "\n#{index}. #(deal.product)"
     # puts Price, #{deal.price}
     # puts deal.description
-   end 
+  # end 
+ end 
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
