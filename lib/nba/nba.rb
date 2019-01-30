@@ -1,6 +1,7 @@
 class NBA::NBA
+  #rename player 
   
-   attr_accessor :name
+   attr_accessor :name, :position, :height, :weight, :category
   
   @@all = []
   

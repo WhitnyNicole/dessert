@@ -1,5 +1,7 @@
 class NBA::Category
   
+#rename team 
+  
   attr_accessor :name, :url, :items
   attr_reader :players
   @@all = []
