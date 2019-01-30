@@ -64,7 +64,7 @@ class NBA::CLI
     input = gets.strip.downcase
     if input == "y"
       puts "here are the current players:"
-      #2nd scrape
+      NBA::Scraper.scrape_players(category.url)
     else 
       puts "No worries! Visit us again soon."
     end 
