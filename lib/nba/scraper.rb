@@ -24,12 +24,7 @@ class NBA::Scraper
     
   def self.scrape_players(url) #class method 
      webpage = Nokogiri::HTML(open(url)) 
-     section = webpage.css("p.nba-player-index__name")
-    # player.children.text returns player name, need to add a space 
-     players.each do |player|
-    binding.pry
-       text = "Current player is #{player}"
-       puts text 
-   end 
+     players = webpage.css("p.nba-player-index__name")
+       puts "Current player is #{players.text}"
  end 
 end 
