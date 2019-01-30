@@ -61,7 +61,11 @@ class NBA::CLI
   
    def display_category_items(category)
      NBA::Scraper.scrape_items(category)
-     category.items
+     #puts here are the players for #{category.name}\n"
+    # category.nba.each.with_index(1) do |deal, index|
+    # puts "\n#{index}. #(deal.product)"
+    # puts Price, #{deal.price}
+    # puts deal.description
    end 
    
    def scrape_teams #this method is calling my scraper class to scrape
