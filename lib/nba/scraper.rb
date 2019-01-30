@@ -41,7 +41,8 @@ class NBA::Scraper
      webpage = Nokogiri::HTML(open(url)) 
      players = webpage.css("section.nba-player-index__trending-item.small-4.medium-3.large-2.team-atl-hawks")
      players.each do |player|
-      binding.pry
+       text = "Current player is "
+       puts text 
    end 
  end 
 end 

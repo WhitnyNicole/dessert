@@ -14,6 +14,9 @@ class NBA::CLI
     case input #case statement 
       when "yes"
         puts "These are the current NBA teams: "
+         scrape_teams
+        list_categories
+        choose_category
       when "exit"
         puts "Goodbye"
       else
