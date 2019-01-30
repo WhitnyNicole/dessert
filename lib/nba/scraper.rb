@@ -25,7 +25,9 @@ class NBA::Scraper
   def self.scrape_players(url) #class method 
      webpage = Nokogiri::HTML(open(url)) 
      players = webpage.css("p.nba-player-index__name")
-       puts "Current players are: #{players.text}"
+     players.each do |player|
+     NBA::NBA.new(players.text)
+      puts "Current players are: #{players.text}"
      end 
  end 
 end 
