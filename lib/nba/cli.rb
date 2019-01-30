@@ -49,10 +49,10 @@ class NBA::CLI
    end 
    
   def want_more_info(category)
-    puts "Want More Info? (Y/N)"
+    puts "Want More Info? Type yes or no"
     input = gets.strip.downcase
-    if input == "y"
-      puts "here are the current players:"
+    if input == "yes"
+      puts "Here are the current players:"
       NBA::Scraper.scrape_players(category.url)
     else 
       puts "No worries! Visit us again soon."

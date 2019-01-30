@@ -26,7 +26,7 @@ class NBA::Scraper
      webpage = Nokogiri::HTML(open(url)) 
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
-    NBA::NBA.new(players.text)
+    NBA::NBA.new(nodeset.text)
       puts "#{nodeset.text}"
     end 
  end 
