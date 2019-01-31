@@ -26,8 +26,8 @@ class NBA::CLI
   end 
   
    def list_categories
-        NBA::Team.all.each.with_index(1) do |category, index|
-          puts "#{index}. #{category.name}"  #printing out the category names
+        NBA::Team.all.each.with_index(1) do |team, index|
+          puts "#{index}. #{team.name}"  #printing out the team names
         end 
       end 
       
