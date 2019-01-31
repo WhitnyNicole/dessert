@@ -20,6 +20,7 @@ class NBA::Scraper
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
       puts "\n#{nodeset.text}" #player name
+      binding.pry
   #   # everything works above here
     
   # #   schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
@@ -65,3 +66,7 @@ end
   #   players = profile.css("section.row.nba-player-index__row").text #returns player name height and weight 
   # end 
   
+  # webpage.css("div.team_profile").css("p").text ---> narrows down return to Games at a glance and player stats
+  
+#  webpage.css("div.team_profile").css("p.nba-player-index__name").text ---> returns just names of all players
+# webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value ---> returns link to team schedule
