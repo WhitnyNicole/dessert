@@ -15,8 +15,8 @@ class NBA::CLI
       when "yes"
         puts "\nThese are the current NBA teams: "
         scrape_teams
-        list_categories
-        choose_category
+        list_teams
+        choose_team
       when "exit"
         puts "\nGoodbye"
       else
@@ -25,25 +25,25 @@ class NBA::CLI
     end 
   end 
   
-   def list_categories
+   def list_teams
         NBA::Team.all.each.with_index(1) do |team, index|
           puts "#{index}. #{team.name}"  #printing out the team names
         end 
       end 
       
-   def choose_category
+   def choose_team
      puts "\nChoose a team by selecting a number 1-30:" #adding a line break by using \n
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = NBA::Team.all.length
      if input.between?(1,max)
        category = NBA::Team.all[input-1]
        puts "\nThese are the players for the #{category.name}: "
-       display_category_items(category)
+       display_team_players(category)
        want_more_info(category)
      elsif input == "exit"
      else
        puts "\nOops, please put in a valid input"
-       choose_category
+       choose_team
      end 
    end 
    
@@ -58,7 +58,7 @@ class NBA::CLI
     end 
   end 
   
-   def display_category_items(category) #scrape players 
+   def display_team_players(category) #scrape players 
      NBA::Scraper.scrape_all_players(category) # "category" returns object ID, name and team url and scraper method returns player names
  end 
    
@@ -75,8 +75,8 @@ class NBA::CLI
    puts "\nWould you like to exit? Type 'Exit'"
    input = gets.strip.upcase
     if input == "Yes"
-      list_categories
-      choose_category
+      list_teams
+      choose_team
     elsif input == "Start"
       menu
     elsif input == "Exit"
