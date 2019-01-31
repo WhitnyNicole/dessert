@@ -19,12 +19,16 @@ class NBA::Scraper
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
-      puts "\n#{nodeset.text}"
-    # scheudle_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
-    # NBA::Team.new(team.text, team.attributes["href"].value)
+      puts "\n#{nodeset.text}" #player name
       
-      # schdule = webpage.css("team-info-stats")[0].next_element.css("a").text #see full scheudle #don't need this 
-    end 
+    #everything works above here
+    
+    schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
+    puts schedule_link
+    NBA::Team.new(team.text, team.attributes["href"].value)
   end 
 end 
-
+end 
+      
+      # schdule = webpage.css("team-info-stats")[0].next_element.css("a").text #see full scheudle #don't need this 
+  
