@@ -33,14 +33,12 @@ def self.scrape_all_players(category) #category is representing an object
     webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
-    player = NBA::Players.new
-    binding.pry
-    name = webpage.css("p.nba-player-index__name")[0].text #returns single player name
-    schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule #returns single team schedule link
-      
-    
-    
-    team.add_player(player)
+    NBA::Players.new
+    name = webpage.css("p.nba-player-index__name").text #returns single player name
+    # puts "#{name}"
+    puts "\n#{nodeset.text}" #player name
+
+    # team.add_player(player)
   end 
 end 
 end 
@@ -48,4 +46,14 @@ end
       # schdule = webpage.css("team-info-stats")[0].next_element.css("a").text #see full scheudle #don't need this 
   
   
+  #   def self.scrape_all_teams(url)
+  #   webpage = Nokogiri::HTML(open(url)) #opens webpage
+  #   section = webpage.css("div.team__list_wrapper") #list of teams
+  #   array_of_teams = section.css("div.team__list a") #returns team name
+  #   schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule #returns single team schedule link
+  #   array_of_teams.map do |team|
+  #   NBA::Team.new(team.text, team.attributes["href"].value, schedule_link)
+  #   end 
+  #   #using .map return value is an array of objects (all the teams)
+  # end
   

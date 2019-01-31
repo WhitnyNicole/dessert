@@ -3,7 +3,7 @@ class NBA::Team
   attr_accessor :name, :url, :schedule_link
   attr_reader :players
   @@all = []
-  def initialize(name, url)
+  def initialize(name, url, schedule_link)
     @name = name
     @url = "http://www.nba.com" + url 
     @schedule_link = schedule_link
