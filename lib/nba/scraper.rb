@@ -16,9 +16,10 @@ class NBA::Scraper
   
   def self.scrape_all_players(team) #category is representing an object
     webpage = Nokogiri::HTML(open(team.url)) #opens webpage the url is for the specific team
-    players = webpage.css("p.nba-player-index__name")
+    players = webpage.css("p.nba-player-index__name") #returning all players for selected team
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
+    binding.pry
       puts "\n#{nodeset.text}" #player name
     #everything works above here
     
@@ -33,9 +34,11 @@ end
 #     webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
 #     players = webpage.css("p.nba-player-index__name")
 #     players.each do |nodeset|
-#     NBA::Players.new(nodeset.text)
 #     player = NBA::Players.new
+#     name = webpage.css("p.nba-player-index__name")[0].text
 #     schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
+      
+    
     
 #     team.add_player(player)
 #   end 
