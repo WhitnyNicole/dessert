@@ -7,6 +7,7 @@ class NBA::Team
     @name = name
     @url = "http://www.nba.com" + url 
     @schedule = schedule
+    @players = []
     @@all << self #remembering the object
   end 
   
