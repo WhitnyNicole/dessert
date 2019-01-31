@@ -68,5 +68,15 @@ end
   
   # webpage.css("div.team_profile").css("p").text ---> narrows down return to Games at a glance and player stats
   
-#  webpage.css("div.team_profile").css("p.nba-player-index__name").text ---> returns just names of all players
-# webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value ---> returns link to team schedule
+  
+  # # def self.scrape_all_players(category) #category is representing an object
+  #   webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
+  #   players = webpage.css("div.team_profile").css("p.nba-player-index__name").text ---> returns just names of all players
+  #   scheudle = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value ---> returns link to team schedule
+
+
+
+    # def self.scrape_all_players(category) 
+    # webpage = Nokogiri::HTML(open(category.url))
+    # players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
+    # scheudle = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
