@@ -4,15 +4,15 @@ class NBA::Players
   
   @@all = []
   
-#   def initialize(name)
-#     @name = name
-#     @players = []
-#     @@all << self #remembering the object
-#   end 
+  def initialize(name)
+    @name = name
+    @players = []
+    @@all << self #remembering the object
+  end 
   
-#   def self.all
-#     @@all
-#   end 
-# end 
+  def self.all
+    @@all
+  end 
+end 
   
- end
+ 

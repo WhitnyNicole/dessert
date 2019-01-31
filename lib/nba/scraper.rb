@@ -14,8 +14,8 @@ class NBA::Scraper
   end
   
   
-  def self.scrape_all_players(category) #category is representing an object
-    webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
+  def self.scrape_all_players(team) #category is representing an object
+    webpage = Nokogiri::HTML(open(team.url)) #opens webpage the url is for the specific team
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
