@@ -53,28 +53,21 @@ class NBA::CLI
     input = gets.strip.downcase
     if input == "yes"
       puts "Here are the current players:"
-      NBA::Scraper.scrape_player(category.url)
+      NBA::Scraper.scrape_all_players(category.url)
     else 
       puts "No worries! Visit us again soon."
     end 
   end 
   
    def display_category_items(category) #scrape players 
-     NBA::Scraper.scrape_items(category) # "category" returns object ID, name and team url and scraper method returns player names
-     binding.pry
-     #puts here are the players for #{category.name}\n"
-    # category.nba.each.with_index(1) do |deal, index|
-    # puts "\n#{index}. #(deal.product)"
-    # puts Price, #{deal.price}
-    # puts deal.description
-  # end 
+     NBA::Scraper.scrape_all_players(category) # "category" returns object ID, name and team url and scraper method returns player names
  end 
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
     url = "https://www.nba.com/teams"
     #how to call the scraper method 
-    NBA::Scraper.scrape_categories(url) #should make objects
+    NBA::Scraper.scrape_all_teams(url) #should make objects
    end 
    
    def second_menu
