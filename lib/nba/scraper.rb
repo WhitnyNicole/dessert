@@ -31,6 +31,7 @@ class NBA::Scraper
 
 def self.scrape_all_players(category) #category is representing an object
     webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
+    binding.pry
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
     NBA::Players.new
@@ -56,4 +57,12 @@ end
   #   end 
   #   #using .map return value is an array of objects (all the teams)
   # end
+  
+  
+  # def self.scrape_all_players(category) #category is representing an object
+  #   webpage = Nokogiri::HTML(open(category.url)) #opens webpage the url is for the specific team
+  #   profile = webpage.css("div.team_profile") #returns full stats/info
+  #   schedule = profile.css("team-info-stats")[0].next_element.css("a").attr("href").value
+  #   players = profile.css("section.row.nba-player-index__row").text #returns player name height and weight 
+  # end 
   
