@@ -80,9 +80,9 @@ class NBA::CLI
     elsif input == "Start"
       menu
     elsif input == "Exit"
-      puts "Goodbye!"
+      puts "\nGoodbye!"
     else
-      puts "Sorry I couldn't understand that command"
+      puts "\nSorry I couldn't understand that command"
       second_menu
     end
   end 
