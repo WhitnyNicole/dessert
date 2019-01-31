@@ -3,24 +3,24 @@
 class NBA::CLI 
   
   def start #instance method
-    puts "Welcome to NBA.com"
+    puts "Welcome to the NBA.com!"
     menu
   end 
   
   def menu
-    puts "Would you like to see the current teams?"
-    puts "Type yes or exit"
+    puts "\nWould you like to see the current teams?"
+    puts "\nPlease type yes or exit"
     input = gets.strip.downcase
     case input #case statement 
       when "yes"
-        puts "These are the current NBA teams: "
-         scrape_teams
+        puts "\nThese are the current NBA teams: "
+        scrape_teams
         list_categories
         choose_category
       when "exit"
-        puts "Goodbye"
+        puts "\nGoodbye"
       else
-        puts "Sorry, I didn't understand that input"
+        puts "\nSorry, I didn't understand that input"
         menu
     end 
   end 
@@ -37,11 +37,10 @@ class NBA::CLI
      max = NBA::Team.all.length
      if input.between?(1,max)
        category = NBA::Team.all[input-1]
+       puts "\nThese are the players for the #{category.name}: "
        display_category_items(category)
-       puts "#{category.name}"
        want_more_info(category)
      elsif input == "exit"
-     #allow this method to end
      else
        puts "\nOops, please put in a valid input"
        choose_category
@@ -49,13 +48,13 @@ class NBA::CLI
    end 
    
   def want_more_info(category)
-    puts "Want More Info? Type yes or no"
+    puts "\nWant More Info? Type yes or no"
     input = gets.strip.downcase
     if input == "yes"
-      puts "Here are the current players:"
+      puts "\nHere are the current players:"
       NBA::Scraper.scrape_all_players(category.url)
     else 
-      puts "No worries! Visit us again soon."
+      puts "\nNo worries! Visit us again soon."
     end 
   end 
   
@@ -71,9 +70,9 @@ class NBA::CLI
    end 
    
    def second_menu
-   puts "Would you like to look at another team? Type 'Yes'"
-   puts "Would you like to go to the start? Type 'Start'"
-   puts "Would you like to exit? Type 'Exit'"
+   puts "\nWould you like to look at another team? Type 'Yes'"
+   puts "\nWould you like to go to the start? Type 'Start'"
+   puts "\nWould you like to exit? Type 'Exit'"
    input = gets.strip.upcase
     if input == "Yes"
       list_categories

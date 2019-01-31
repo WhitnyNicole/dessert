@@ -18,7 +18,7 @@ class NBA::Scraper
     players = webpage.css("p.nba-player-index__name")
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
-      puts "#{nodeset.text}"
+      puts "\n#{nodeset.text}"
     end 
       
       # schdule = webpage.css("team-info-stats")[0].next_element.css("a").text #see full scheudle #don't need this 
