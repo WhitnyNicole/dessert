@@ -19,9 +19,8 @@ class NBA::Scraper
     players = webpage.css("p.nba-player-index__name") #returning all players for selected team
     players.each do |nodeset|
     NBA::Players.new(nodeset.text)
-    binding.pry
       puts "\n#{nodeset.text}" #player name
-    #everything works above here
+    # everything works above here
     
   #   schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
   #   puts schedule_link
@@ -35,8 +34,8 @@ end
 #     players = webpage.css("p.nba-player-index__name")
 #     players.each do |nodeset|
 #     player = NBA::Players.new
-#     name = webpage.css("p.nba-player-index__name")[0].text
-#     schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
+#     players.name = webpage.css("p.nba-player-index__name")[0].text
+#     players.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #-->this returns link to hawks schedule
       
     
     
