@@ -37,9 +37,8 @@ class NBA::CLI
      max = NBA::Team.all.length
      if input.between?(1,max)
        team = NBA::Team.all[input-1]
-       puts "\nThese are the players for the #{team.name}: "
+      # puts "\nThese are the players for the #{team.name}: "
        display_team_players(team)
-       want_more_info(team)
      elsif input == "exit"
      else
        puts "\nOops, please put in a valid input"
@@ -47,23 +46,23 @@ class NBA::CLI
      end 
    end 
    
-  def want_more_info(team)
-    puts "\nWant More Info? Type yes or no"
-    input = gets.strip.downcase
-    if input == "yes"
-      puts "\nHere are the current players:"
-      NBA::Scraper.scrape_all_items(team.url)
-    else 
-      puts "\nNo worries! Visit us again soon."
-    end 
-  end 
+  # def want_more_info(team)
+  #   puts "\nWant More Info? Type yes or no"
+  #   input = gets.strip.downcase
+  #   if input == "yes"
+  #     puts "\nHere are the current players:"
+  #     NBA::Scraper.scrape_all_items(team.url)
+  #   else 
+  #     puts "\nNo worries! Visit us again soon."
+  #   end 
+  # end 
   
    def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
-     puts "Here are the items for #{team.name}:\n"
+     puts "\nHere are the players for the #{team.name}: "
      team.items.each.with_index(1) do |item, index|
        puts "\n#{index}. #{item.players}"
-       puts "Team Schedule: #{item.schedule_link}"
+       puts "\nHere is the team schedule for #{team.name}: #{item.schedule_link}"
      end 
      second_menu
  end 
@@ -79,13 +78,13 @@ class NBA::CLI
    puts "\nWould you like to look at another team? Type 'Yes'"
    puts "\nWould you like to go to the start? Type 'Start'"
    puts "\nWould you like to exit? Type 'Exit'"
-   input = gets.strip.upcase
-    if input == "Yes"
+   input = gets.strip.downcase
+    if input == "yes"
       list_teams
       choose_team
-    elsif input == "Start"
+    elsif input == "start"
       menu
-    elsif input == "Exit"
+    elsif input == "exit"
       puts "\nGoodbye!"
     else
       puts "\nSorry I don't understand"
