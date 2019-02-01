@@ -46,16 +46,33 @@ class NBA::CLI
      end 
    end 
   
-   def display_team_players(team) #scrape players 
+  # def display_team_players(team) #scrape players 
+  #   NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
+  #   team.items.each.with_index(1) do |item, index|
+  #     #prints out information on each team --> players and schedule
+  #     puts "\nClick here to see the team schedule for the #{team.name}: #{item.schedule_link}"
+  #       puts "\nHere are the players for the #{team.name}: ".colorize(:blue) 
+  #     puts "\n#{index}. #{item.players}".colorize(:red)
+  #   end 
+  #   second_menu
+  # end 
+   
+   
+    def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
-     team.items.each.with_index(1) do |item, index|
+     team.items.each do |item|
        #prints out information on each team --> players and schedule
        puts "\nClick here to see the team schedule for the #{team.name}: #{item.schedule_link}"
         puts "\nHere are the players for the #{team.name}: ".colorize(:blue) 
-       puts "\n#{index}. #{item.players}".colorize(:red)
+       puts "\n#{item.players.text}".colorize(:red)
      end 
      second_menu
    end 
+   
+   # returns AronBaynesJabariBirdJaylenBrownPJDozierGordonHaywardAlHorfordRJHunterKyrieIrvingMarcusMorrisSemiOjeleyeTerryRozierMarcusSmartJaysonTatumDanielTheisBradWanamakerRobertWilliams IIIGuerschonYabusele
+   
+   
+   
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
