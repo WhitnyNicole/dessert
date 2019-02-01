@@ -64,7 +64,7 @@ class NBA::CLI
        #prints out information on each team --> players and schedule
        puts "------------------------------------------------------------------------------"
        puts "Here's more info on the #{team.name}: " 
-       puts "\nSee Schedule: #{item.schedule_link}".colorize(:blue) 
+       puts "\nSee Schedule: https://www.nba.com#{item.schedule_link}".colorize(:blue) 
         puts "\nSee Players: ".colorize(:blue) 
       puts "\n#{item.players.text}".colorize(:red)
       puts "-------------------------------------------------------------------------------"
