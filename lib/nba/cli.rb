@@ -62,7 +62,7 @@ class NBA::CLI
      puts "\nHere are the players for the #{team.name}: "
      team.items.each.with_index(1) do |item, index|
        puts "\n#{index}. #{item.players}"
-       puts "\nWant to see your team in action?! Here is the team schedule for #{team.name}: #{item.schedule_link}"
+       puts "\nClick here to see the team schedule for the #{team.name}: #{item.schedule_link}"
      end 
      second_menu
  end 
