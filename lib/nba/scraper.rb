@@ -30,7 +30,7 @@ class NBA::Scraper
     items.players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
     items.schedule_link = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
     
-    stats.each do |stat|
+    items.each do |item|
       
       items = NBA::Items.new
       

@@ -17,11 +17,7 @@ class NBA::Team
   end 
   
   def add_items
-    @items << item
-    item.team = self 
-  end 
-  
-  def items
-    @items
+    self.items << item
+    self.team = self 
   end 
 end 
