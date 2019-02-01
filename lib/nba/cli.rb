@@ -60,13 +60,19 @@ class NBA::CLI
   
    def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
+     puts "Here are the items for #{team.name}:\n"
+     team.items.each.with_index(1) do |item, index|
+       puts "\n#{index}. #{items.players}"
+       puts "Team Schedule: #{items.schedule_link}"
+     end 
+     second_menu
  end 
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page
     url = "https://www.nba.com/teams"
     #how to call the scraper method 
-    NBA::Scraper.scrape_all_teams(url) #should make objects
+    team = NBA::Scraper.scrape_all_teams(url) #should make objects
    end 
    
    def second_menu
