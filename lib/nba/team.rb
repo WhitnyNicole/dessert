@@ -16,8 +16,8 @@ class NBA::Team
     @@all
   end 
   
-  def add_item(item)
+   def add_item(item)
     self.item << item
-    items.team = self 
+    item.team = self 
   end 
 end 

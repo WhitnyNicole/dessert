@@ -47,11 +47,10 @@ class NBA::Scraper
     items = webpage.css("div.team_profile")
     items.each do |item|
       
-      items = NBA::Items.new
+      item = NBA::Items.new
       
-    players = webpage.css("p.nba-player-index__name").text 
-    schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
-    binding.pry
+    item.players = webpage.css("p.nba-player-index__name").text 
+    item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
       
       team.add_item(item)
     
