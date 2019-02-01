@@ -1,13 +1,13 @@
 class NBA::Team
   
-  attr_accessor :name, :url, :players
+  attr_accessor :name, :url, :items
 
  
   @@all = []
   def initialize(name, url)
     @name = name
     @url = "http://www.nba.com" + url 
-    @players = []
+    @items = []
     @@all << self #remembering the object
   end 
   
@@ -15,12 +15,12 @@ class NBA::Team
     @@all
   end 
   
-  def add_players
-    @players << player
-    player.team = self 
+  def add_items
+    @items << item
+    item.team = self 
   end 
   
-  def players
-    @players
+  def items
+    @items
   end 
 end 

@@ -36,10 +36,10 @@ class NBA::CLI
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = NBA::Team.all.length
      if input.between?(1,max)
-       category = NBA::Team.all[input-1]
-       puts "\nThese are the players for the #{category.name}: "
-       display_team_players(category)
-       want_more_info(category)
+       team = NBA::Team.all[input-1]
+       puts "\nThese are the players for the #{team.name}: "
+       display_team_players(team)
+       want_more_info(team)
      elsif input == "exit"
      else
        puts "\nOops, please put in a valid input"
@@ -47,19 +47,19 @@ class NBA::CLI
      end 
    end 
    
-  def want_more_info(category)
+  def want_more_info(team)
     puts "\nWant More Info? Type yes or no"
     input = gets.strip.downcase
     if input == "yes"
       puts "\nHere are the current players:"
-      NBA::Scraper.scrape_all_players(category.url)
+      NBA::Scraper.scrape_all_items(team.url)
     else 
       puts "\nNo worries! Visit us again soon."
     end 
   end 
   
-   def display_team_players(category) #scrape players 
-     NBA::Scraper.scrape_all_players(category) # "category" returns object ID, name and team url and scraper method returns player names
+   def display_team_players(team) #scrape players 
+     NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
  end 
    
    def scrape_teams #this method is calling my scraper class to scrape
