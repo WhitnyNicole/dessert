@@ -62,7 +62,7 @@ class NBA::CLI
      puts "\nHere are the players for the #{team.name}: "
      team.items.each.with_index(1) do |item, index|
        puts "\n#{index}. #{item.players}"
-       puts "\nHere is the team schedule for #{team.name}: #{item.schedule_link}"
+       puts "\nWant to see your team in action?! Here is the team schedule for #{team.name}: #{item.schedule_link}"
      end 
      second_menu
  end 
@@ -75,9 +75,9 @@ class NBA::CLI
    end 
    
    def second_menu
-   puts "\nWould you like to look at another team? Type 'Yes'"
-   puts "\nWould you like to go to the start? Type 'Start'"
-   puts "\nWould you like to exit? Type 'Exit'"
+   puts "\nWould you like to look at another team? Type 'yes'\n"
+   puts "\nWould you like to go to the start? Type 'start'\n"
+   puts "\nWould you like to exit? Type 'exit'\n"
    input = gets.strip.downcase
     if input == "yes"
       list_teams

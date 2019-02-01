@@ -21,7 +21,7 @@ class NBA::Scraper
       
       item = NBA::Items.new
       
-    item.players = webpage.css("p.nba-player-index__name").text 
+    item.players = webpage.css("p.nba-player-index__name")
     item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
       
       team.add_item(item)
