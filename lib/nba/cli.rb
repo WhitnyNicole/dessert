@@ -49,6 +49,7 @@ class NBA::CLI
    def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
      team.items.each.with_index(1) do |item, index|
+       #prints out information on each team --> players and schedule
        puts "\nClick here to see the team schedule for the #{team.name}: #{item.schedule_link}"
         puts "\nHere are the players for the #{team.name}: "
        puts "\n#{index}. #{item.players}"

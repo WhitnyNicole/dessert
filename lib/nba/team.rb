@@ -1,7 +1,7 @@
 class NBA::Team
   
   attr_accessor :name, :url 
-  attr_reader :items
+  attr_reader :items #has many relationship
 
  
   @@all = []
