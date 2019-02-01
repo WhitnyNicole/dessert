@@ -25,20 +25,38 @@ class NBA::Scraper
 # end 
 
 
-    def self.scrape_all_items(team) 
-    webpage = Nokogiri::HTML(open(team.url))
-    items.players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
-    items.schedule_link = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
+#     def self.scrape_all_items(team) 
+#     webpage = Nokogiri::HTML(open(team.url))
+#     players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
+#     schedule_link = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
     
+#     items.each do |item|
+      
+#       items = NBA::Items.new
+      
+#       team.add_items(item)
+       
+#     end 
+#   end 
+# end 
+
+
+
+ def self.scrape_all_items(team) 
+    webpage = Nokogiri::HTML(open(team.url))
+    items = webpage.css("div.team_profile")
     items.each do |item|
       
       items = NBA::Items.new
       
-      team.add_items(item)
-       binding.pry
-    end 
+    players = webpage.css("p.nba-player-index__name").text 
+    schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
+    binding.pry
+      
+      team.add_item(item)
+    
   end 
 end 
-    
-    
+end 
+
     

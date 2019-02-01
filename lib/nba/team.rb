@@ -1,7 +1,7 @@
 class NBA::Team
   
   attr_accessor :name, :url 
-  attr_reader :items
+  attr_reader :item
 
  
   @@all = []
@@ -16,8 +16,8 @@ class NBA::Team
     @@all
   end 
   
-  def add_items
-    self.items << item
-    self.team = self 
+  def add_item(item)
+    self.item << item
+    items.team = self 
   end 
 end 
