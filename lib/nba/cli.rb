@@ -28,8 +28,8 @@ class NBA::CLI
    def list_teams
         NBA::Team.all.each.with_index(1) do |team, index|
           puts "#{index}. #{team.name}"  #printing out the team names
-        end 
       end 
+    end 
       
    def choose_team
      puts "\nChoose a team by selecting a number 1-30:" #adding a line break by using \n
@@ -45,17 +45,6 @@ class NBA::CLI
        choose_team
      end 
    end 
-   
-  # def want_more_info(team)
-  #   puts "\nWant More Info? Type yes or no"
-  #   input = gets.strip.downcase
-  #   if input == "yes"
-  #     puts "\nHere are the current players:"
-  #     NBA::Scraper.scrape_all_items(team.url)
-  #   else 
-  #     puts "\nNo worries! Visit us again soon."
-  #   end 
-  # end 
   
    def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
@@ -65,7 +54,7 @@ class NBA::CLI
        puts "\n#{index}. #{item.players}"
      end 
      second_menu
- end 
+   end 
    
    def scrape_teams #this method is calling my scraper class to scrape
      #scrape the teams page

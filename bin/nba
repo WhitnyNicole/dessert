@@ -7,6 +7,6 @@ NBA::CLI.new.start
 
 
 
-#executable file
-#shebang line is the first line
-#require environment file
+#this is the executable file
+#shebang line is the first line, must have this!
+#needs to require the environment file

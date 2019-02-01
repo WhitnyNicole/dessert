@@ -10,23 +10,21 @@ class NBA::Scraper
     array_of_teams.map do |team|
     NBA::Team.new(team.text, team.attributes["href"].value)
     end 
-    #using .map return value is an array of objects (all the teams)
+    #using .map, the return value is an array of objects (all the teams)
   end
   
 
- def self.scrape_all_items(team) 
+  def self.scrape_all_items(team) 
     webpage = Nokogiri::HTML(open(team.url))
-    items = webpage.css("div.team_profile")
+    items = webpage.css("div.team_profile") #returns team profile
     items.each do |item|
-      
       item = NBA::Items.new
       
-    item.players = webpage.css("p.nba-player-index__name")
-    item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value
+      item.players = webpage.css("p.nba-player-index__name") #returns player names
+      item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #returns individual team schedule link 
       team.add_item(item)
-      binding.pry
+    end 
   end 
-end 
 end 
 
     
