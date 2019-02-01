@@ -14,19 +14,31 @@ class NBA::Scraper
   end
   
   
-  def self.scrape_all_items(team) #category is representing an object
-    webpage = Nokogiri::HTML(open(team.url)) #opens webpage the url is for the specific team
-    players = webpage.css("p.nba-player-index__name") #returning all players for selected team
-    players.each do |nodeset|
-    NBA::Items.new(nodeset.text)
-      puts "\n#{nodeset.text}" #player name
-      binding.pry
+#   def self.scrape_all_items(team) #category is representing an object
+#     webpage = Nokogiri::HTML(open(team.url)) #opens webpage the url is for the specific team
+#     players = webpage.css("p.nba-player-index__name") #returning all players for selected team
+#     players.each do |nodeset|
+#     NBA::Items.new(nodeset.text)
+#       puts "\n#{nodeset.text}" #player name
+#   end 
+# end 
+# end 
+
+
+    def self.scrape_all_items(team) 
+    webpage = Nokogiri::HTML(open(team.url))
+    s.players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
+    stats.scheudle = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
+    
+    stats.each do |stat|
+      
+      item = NBA::Items.new
+      
+      team.add_items(item)
+       binding.pry
+    end 
   end 
 end 
-end 
-
-
-    # def self.scrape_all_players(category) 
-    # webpage = Nokogiri::HTML(open(category.url))
-    # players = webpage.css("div.team_profile").css("p.nba-player-index__name").text 
-    # scheudle = webpage.css("div.team_profile").css("team-info-stats")[0].next_element.css("a").attr("href").value
+    
+    
+    

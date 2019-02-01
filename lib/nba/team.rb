@@ -1,6 +1,7 @@
 class NBA::Team
   
-  attr_accessor :name, :url, :items
+  attr_accessor :name, :url 
+  attr_reader :items
 
  
   @@all = []
