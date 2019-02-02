@@ -23,7 +23,11 @@ class NBA::Scraper
   items = NBA::Items.new 
   
   #Assigning Attributes 
-  items.array_of_player_names = card.css("p.nba-player-index__name").text
+  
+  items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
+  player.text
+  end
+  
   items.schedule_link = card.css("team-info-stats")[0].next_element.css("a").attr("href").value
   #Associating Objects
   team.add_items(items) 
