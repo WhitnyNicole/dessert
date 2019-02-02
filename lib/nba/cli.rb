@@ -30,7 +30,8 @@ class NBA::CLI
           #tell you what you want your index to start with. Team is an array that naturally starts at 0
           #team is a variable of each individual team
           #index is a variable that keeps track of your index
-          puts "#{index}. #{team.name}"  #printing out the team names
+          puts "#{index}. #{team.name}"  
+          # have to do team.name so that it's printing out the team names and not the object ID 
       end 
     end 
       
@@ -80,11 +81,11 @@ class NBA::CLI
    
    
    
-   def scrape_teams #this method is calling my scraper class to scrape
-     #scrape the teams page
-    url = "https://www.nba.com/teams"
-    #how to call the scraper method 
-    team = NBA::Scraper.scrape_all_teams(url) #should make objects
+   def scrape_teams 
+     #this method is not scraping, it's only calling my scraper class to scrape
+    url = "https://www.nba.com/teams" #this could move to scraper method
+    team = NBA::Scraper.scrape_all_teams(url) #this should make objects
+    #NBA::Scraper is how to call the scraper method 
    end 
    
    def second_menu
