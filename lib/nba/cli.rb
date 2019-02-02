@@ -52,14 +52,13 @@ class NBA::CLI
     def display_team_players(team) #team represents a team object #scrape players 
      NBA::Scraper.scrape_all_items(team) # "team" returns object ID, name and team url 
     # second level scraper method returns player names and schedule link 
-    binding.pry
-       team.profiles.each do |profile| #--->represents an array of profile objects 
+       team.scouting_report.each do |items| #--->represents an array of profile objects 
+      # binding.pry
        #prints out information on each team profile --> players and schedule
           puts "------------------------------------------------------------------------------"
           puts "Here's more info on the #{team.name}: " 
           puts "\nSee Schedule: https://www.nba.com#{items.schedule_link}".colorize(:blue) 
-          puts "\nSee Players: ".colorize(:blue) 
-          puts "\n "#{items.array_of_player_names.text}".colorize(:red)
+          puts "\nSee Players: #{items.array_of_player_names}".colorize(:red)
           puts "-------------------------------------------------------------------------------"
         end 
      second_menu
