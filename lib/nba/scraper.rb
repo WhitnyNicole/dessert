@@ -52,6 +52,24 @@ end
       # team.profiles = profile  ------> adding profile as an attribue to team -----> if it's an array can use << method 
       #need to add profile to Team class 
       #idea is to be able to print team.profile in cli 
+      
+      
+      #we have two separate objects: team and items 
+      #setting up a has many relationship between team and items 
+      
+      #class Team
+      #attr_accessor :name, :url
+      #attr_readers :profile ---> so profile doesn't get overwritten 
+      #assigning attributes in initialize method 
+      
+      #class Items 
+      #attr_accessor :players, :schedule_link
+      #@@all = [] ---> would need to have an initialize method to store in @@all
+      #could do @@profile = []
+      
+      #each team object will have an array of items 
+      
+      #second level scrape will instantiate an item and then add it to the team object 
 
 
 
