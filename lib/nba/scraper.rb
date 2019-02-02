@@ -14,24 +14,6 @@ class NBA::Scraper
   end
   
 
-#   def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
-#     #second scrape, scraping individual team's website to get players and schedule link 
-#     webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
-#     items = webpage.css("div.team_profile") #returns team profile
-#     items.each do |item|
-#       binding.pry
-#       item = NBA::Items.new
-#       #Assigning object attributes
-#       item.players = webpage.css("p.nba-player-index__name") #returns player names
-#       item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #returns individual team schedule link 
-#       #Associated objects
-#       team.add_item(item)
-#     end 
-#   end 
-# end 
-
-# Testing new second scraper:
-
   def self.scrape_all_items(team) #class method 
   #Creating an Instance
   webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
