@@ -17,7 +17,7 @@ class NBA::Team
   end 
   
   def add_items(items) #items is an object
-  self.profile << items 
+  self.profiles << items 
   items.team = self 
   end 
 end 
