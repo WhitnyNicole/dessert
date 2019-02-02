@@ -1,14 +1,14 @@
 class NBA::Team
   
   attr_accessor :name, :url 
-  attr_reader :items #has many relationship
+  attr_reader :profiles #has many relationship
 
  
   @@all = []
   def initialize(name, url)
     @name = name
     @url = "http://www.nba.com" + url 
-    @items = []
+    @profiles = []
     @@all << self #remembering the object
   end 
   
@@ -16,8 +16,8 @@ class NBA::Team
     @@all
   end 
   
-  def add_item(item)
-    self.items << item
-    item.team = self 
+  def add_items(items) #items is an object
+  self.profile << items 
+  items.team = self 
   end 
 end 

@@ -39,7 +39,7 @@ class NBA::Scraper
   items = NBA::Items.new 
   items.array_of_player_names = profile.css("p.nba-player-index__name") 
   items.schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
-  team.profile << items 
+  team.add_items(items)
     end 
   end 
 end 
@@ -69,6 +69,8 @@ end
     
       #Associate Items and Team:
       #team.profile << items   -----> instance of a team ----> should have object ID and all the attributes 
+      #items.team = items   ---->sets up reciprocal relationship between team and items
+    
     
     #how to instantiate an item object (done on line 41):
     #For every profile that we are looking at, we are going to instantiate an object and then add those object's attributes
