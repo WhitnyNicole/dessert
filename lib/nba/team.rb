@@ -2,7 +2,9 @@ class NBA::Team
   
   attr_accessor :name, :url
   attr_reader :scouting_report #has many relationship
-
+  #we have two separate objects: team and items 
+      #setting up a has many relationship between team and items 
+    
  
   @@all = []
   def initialize(name, url)

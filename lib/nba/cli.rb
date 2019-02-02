@@ -50,7 +50,8 @@ class NBA::CLI
    end 
   
     def display_team_players(team) #team represents a team object #scrape players 
-     NBA::Scraper.scrape_all_items(team) # "team" returns object ID, name and team url 
+     NBA::Scraper.scrape_all_items(team) 
+     # "team" returns object ID, name and team url 
     # second level scraper method returns player names and schedule link 
        team.scouting_report.each do |items| #--->represents an array of profile objects 
       # binding.pry
