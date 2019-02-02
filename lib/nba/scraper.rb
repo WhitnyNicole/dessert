@@ -14,22 +14,40 @@ class NBA::Scraper
   end
   
 
-  def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
-    #second scrape, scraping individual team's website to get players and schedule link 
-    webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
-    items = webpage.css("div.team_profile") #returns team profile
-    items.each do |item|
-      binding.pry
-      item = NBA::Items.new
-      #Assigning object attributes
-      item.players = webpage.css("p.nba-player-index__name") #returns player names
-      item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #returns individual team schedule link 
-      #Associated objects
-      team.add_item(item)
+#   def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
+#     #second scrape, scraping individual team's website to get players and schedule link 
+#     webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
+#     items = webpage.css("div.team_profile") #returns team profile
+#     items.each do |item|
+#       binding.pry
+#       item = NBA::Items.new
+#       #Assigning object attributes
+#       item.players = webpage.css("p.nba-player-index__name") #returns player names
+#       item.schedule_link = webpage.css("team-info-stats")[0].next_element.css("a").attr("href").value #returns individual team schedule link 
+#       #Associated objects
+#       team.add_item(item)
+#     end 
+#   end 
+# end 
+
+# Testing new second scraper:
+
+  def self.scrape_all_items(team) 
+  webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
+  profiles = webpage.css("div.team_profile") #returns team profile
+  profiles.each do |profile|
+  items = NBA::Items.new 
+  items.array_of_player_names = profile.css("p.nba-player-index__name") 
+  items.schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
+  team.profile << items 
     end 
   end 
 end 
 
+  
+  
+  
+  
 
     # def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
     # #second scrape, scraping individual team's website to get players and schedule link 
@@ -37,9 +55,23 @@ end
 
     # profiles = webpage.css("div.team_profile") #returns team profile
     # profiles.each do |profile|
-      # array_of_player_names = profile.css("p.nba-player-index__name") > adding .text returns players names
-    #schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
     
+    #Assigning object attributes:
+    #items = NBA::Items.new ---> instantiate a new one. Since we are inside of the each, we need to save as a variable so that you can add attributes ---> this is creating an instance 
+    
+      # array_of_player_names = profile.css("p.nba-player-index__name") > adding .text returns players names
+      #schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
+    
+      #items.array_of_player_names  ---> assign this to the items since array_of_player_names will be attr_accessor, which means that there is a method called array_of_player_names=  ----> this only works if it's attached to an instance of an item
+    
+      #items.schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
+    
+    
+      #Associate Items and Team:
+      #team.profile << items   -----> instance of a team ----> should have object ID and all the attributes 
+    
+    #how to instantiate an item object (done on line 41):
+    #For every profile that we are looking at, we are going to instantiate an object and then add those object's attributes
     
     
     
@@ -71,7 +103,7 @@ end
       #assigning attributes in initialize method 
       
       #class Items 
-      #attr_accessor :players, :schedule_link
+      #attr_accessor :array_of_player_names, :schedule_link, :team
       #@@all = [] ---> would need to have an initialize method to store in @@all
       #could do @@profile = []
       
