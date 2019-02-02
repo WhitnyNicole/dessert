@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Whitny Edwards'"]
   spec.email         = ["'wne4e2@gmail.com'"]
 
-  spec.summary       = "A gem that scrapes NBA information"
-  spec.description   = "A gem that scrapes NBA information"
-  spec.homepage      = "https://github.com/WhitnyNicole/dessert"
+  spec.summary       = "A gem that scrapes NBA information on the NBA website"
+  spec.description   = "A gem that scrapes NBA information providing a list each team's players and a link to their schedule"
+  spec.homepage      = "https://github.com/WhitnyNicole/nba"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "https://github.com/WhitnyNicole/dessert"
-    spec.metadata["changelog_uri"] = "https://github.com/WhitnyNicole/dessert"
+    spec.metadata["source_code_uri"] = "https://github.com/WhitnyNicole/nba"
+    spec.metadata["changelog_uri"] = "https://github.com/WhitnyNicole/nba"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."

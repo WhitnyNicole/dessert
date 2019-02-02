@@ -58,7 +58,7 @@ class NBA::CLI
           puts "------------------------------------------------------------------------------"
           puts "Here's more info on the #{team.name}: " 
           puts "\nSee Schedule: https://www.nba.com#{items.schedule_link}".colorize(:blue) 
-          puts "\nSee Players: #{items.array_of_player_names}".colorize(:red)
+          puts "\nSee Players: #{items.array_of_player_names}".colorize(:blue)
           puts "-------------------------------------------------------------------------------"
         end 
      second_menu
