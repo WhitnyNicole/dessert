@@ -40,7 +40,7 @@ class NBA::CLI
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = NBA::Team.all.length
      if input.between?(1,max)
-       team = NBA::Team.all[input-1]
+       team = NBA::Team.all[input-1] #-1 represents the index of the array which allows us to retrieve the team 
        display_team_players(team)
      elsif input == "exit"
      else
@@ -49,7 +49,7 @@ class NBA::CLI
      end 
    end 
   
-    def display_team_players(team) #scrape players 
+    def display_team_players(team) #team represents a team object #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
      team.items.each do |item|
        #prints out information on each team --> players and schedule
