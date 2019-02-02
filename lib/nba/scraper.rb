@@ -32,13 +32,13 @@ class NBA::Scraper
 
 # Testing new second scraper:
 
-  def self.scrape_all_items(team) 
+  def self.scrape_all_items(team) #class method 
   webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
   profiles = webpage.css("div.team_profile") #returns team profile
   profiles.each do |profile|
   items = NBA::Items.new 
-  items.array_of_player_names = profile.css("p.nba-player-index__name") 
-  items.schedule_link = profiles.css("team-info-stats")[0].next_element.css("a").attr("href").value
+  items.array_of_player_names = profile.css("p.nba-player-index__name").text 
+  items.schedule_link = profile.css("team-info-stats")[0].next_element.css("a").attr("href").value
   team.add_items(items)
     end 
   end 
