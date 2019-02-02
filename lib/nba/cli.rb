@@ -26,7 +26,10 @@ class NBA::CLI
   end 
   
    def list_teams
-        NBA::Team.all.each.with_index(1) do |team, index|
+        NBA::Team.all.each.with_index(1) do |team, index| 
+          #tell you what you want your index to start with. Team is an array that naturally starts at 0
+          #team is a variable of each individual team
+          #index is a variable that keeps track of your index
           puts "#{index}. #{team.name}"  #printing out the team names
       end 
     end 
