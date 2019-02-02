@@ -21,7 +21,7 @@ class NBA::CLI
         puts "\nGoodbye".colorize(:blue)
       else
         puts "\nSorry, I didn't understand that input".colorize(:blue)
-        menu
+        menu #recursion, which means we just restart at the menu ---> when there is bad user input
     end 
   end 
   
@@ -36,12 +36,11 @@ class NBA::CLI
     end 
       
    def choose_team
-     puts "\nChoose a team by selecting a number 1-30:".colorize(:blue) #adding a line break by using \n
+     puts "\nChoose a team by selecting a number 1-30:".colorize(:blue) 
      input = gets.strip.to_i #strip removes whitespace on both sides
      max = NBA::Team.all.length
      if input.between?(1,max)
        team = NBA::Team.all[input-1]
-      # puts "\nThese are the players for the #{team.name}: "
        display_team_players(team)
      elsif input == "exit"
      else
@@ -50,18 +49,6 @@ class NBA::CLI
      end 
    end 
   
-  # def display_team_players(team) #scrape players 
-  #   NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
-  #   team.items.each.with_index(1) do |item, index|
-  #     #prints out information on each team --> players and schedule
-  #     puts "\nClick here to see the team schedule for the #{team.name}: #{item.schedule_link}"
-  #       puts "\nHere are the players for the #{team.name}: ".colorize(:blue) 
-  #     puts "\n#{index}. #{item.players}".colorize(:red)
-  #   end 
-  #   second_menu
-  # end 
-   
-   
     def display_team_players(team) #scrape players 
      NBA::Scraper.scrape_all_items(team) # "category" returns object ID, name and team url and scraper method returns player names
      team.items.each do |item|
@@ -75,11 +62,6 @@ class NBA::CLI
      end 
      second_menu
    end 
-   
-   # returns AronBaynesJabariBirdJaylenBrownPJDozierGordonHaywardAlHorfordRJHunterKyrieIrvingMarcusMorrisSemiOjeleyeTerryRozierMarcusSmartJaysonTatumDanielTheisBradWanamakerRobertWilliams IIIGuerschonYabusele
-   
-   
-   
    
    def scrape_teams 
      #this method is not scraping, it's only calling my scraper class to scrape
