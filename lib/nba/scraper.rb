@@ -14,8 +14,10 @@ class NBA::Scraper
   end
   
 
-  def self.scrape_all_items(team) #second scrape, scraping individual team's website
-    webpage = Nokogiri::HTML(open(team.url))
+  def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
+    #second scrape, scraping individual team's website to get players and schedule link 
+    webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
+    binding.pry
     items = webpage.css("div.team_profile") #returns team profile
     items.each do |item|
       item = NBA::Items.new
@@ -27,5 +29,31 @@ class NBA::Scraper
     end 
   end 
 end 
+
+
+    # def self.scrape_all_items(team) #class method ---> passing in team as an object so that I can add more attributes 
+    # #second scrape, scraping individual team's website to get players and schedule link 
+    # webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object 
+
+ 
+    #team =  
+    #<NBA::Team:0x00000000fa4920
+    # @items=[],
+    # @name="Atlanta Hawks",
+    # @url="http://www.nba.com/teams/hawks"
+    
+    #webpage.css("div.team_profile").text
+    #.text works on an array 
+    #returns all of the items 
+    #then need to iterate 
+
+    # profiles = webpage.css("div.team_profile") #returns team profile
+    # profiles.each do |profile|
+      # team.profiles = profile  ------> adding profile as an attribue to team -----> if it's an array can use << method 
+      #need to add profile to Team class 
+      #idea is to be able to print team.profile in cli 
+
+
+
 
     
