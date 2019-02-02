@@ -41,5 +41,3 @@ class NBA::Scraper
 end 
 
     
-
-    

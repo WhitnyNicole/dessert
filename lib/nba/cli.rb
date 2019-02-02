@@ -54,13 +54,12 @@ class NBA::CLI
      # "team" returns object ID, name and team url 
     # second level scraper method returns player names and schedule link 
        team.scouting_report.each do |items| #--->represents an array of profile objects 
-      # binding.pry
        #prints out information on each team profile --> players and schedule
-          puts "------------------------------------------------------------------------------"
-          puts "Here's more info on the #{team.name}: " 
-          puts "\nSee Schedule: https://www.nba.com#{items.schedule_link}".colorize(:blue) 
-          puts "\nSee Players: #{items.array_of_player_names}".colorize(:blue)
-          puts "-------------------------------------------------------------------------------"
+          puts "\n------------------------------------------------------------------------------"
+          puts "\nHere's more info: " 
+          puts "\nSee the #{team.name} team schedule: https://www.nba.com#{items.schedule_link}".colorize(:blue)
+          puts "\nSee the current players for the #{team.name}: #{items.array_of_player_names}".colorize(:blue)
+          puts "\n-------------------------------------------------------------------------------"
         end 
      second_menu
    end 
