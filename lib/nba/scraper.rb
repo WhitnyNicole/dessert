@@ -1,20 +1,18 @@
 class NBA::Scraper
-  
-    #open the url and scrape all the teams
-    #must include require "nokogiri"
     
-    def self.scrape_all_teams(url) #first scrape, scrapes all the teams
-      webpage = Nokogiri::HTML(open(url)) #opens webpage
+    def self.scrape_all_teams(url) #using self. this is a class method --> gives program more flexibility because you don't have to keep track of an instance
+      #open the url and scrape all the teams
+      webpage = Nokogiri::HTML(open(url)) #opens webpage and must include require "nokogiri" and "open-uri" (envoronment file)
       section = webpage.css("div.team__list_wrapper") #list of teams
       array_of_teams = section.css("div.team__list a") #returns team name
       array_of_teams.map do |team|
         NBA::Team.new(team.text, team.attributes["href"].value)
       end 
-    #using .map, the return value is an array of objects (all the teams)
+    #using .map, the return value is an array of objects (all the team names)
     end
   
 
-    def self.scrape_all_items(team) #using .self, this is a class method 
+    def self.scrape_all_items(team) 
       #Creating an Instance
       # passing in team as an object so that I can add more attributes 
       #second scrape, scraping individual team's website to get players and schedule link 
