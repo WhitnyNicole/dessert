@@ -30,7 +30,8 @@ class NBA::Scraper
       
       items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
       player.text #returns single player name
-      space = player.text.index(/[[:upper:]]/, 3)
+      # binding.pry
+      space = player.text.index(/[A-Z]/, 2)
       name_with_space = player.text.insert(space, ' ')
       end
       
