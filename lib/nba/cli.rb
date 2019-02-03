@@ -52,7 +52,7 @@ class NBA::CLI
     def display_team_players(team) #team represents a team object #scrape players 
       NBA::Scraper.scrape_all_items(team) 
         puts "\n------------------------------------------------------------------------------"
-        puts "\nHere's more info on that team. "
+        puts "\nGreat! Here's more info on that team. "
         puts "\nSee the current players for the #{team.name}: ".colorize(:blue)
         # "team" returns object ID, name and team url 
         # second level scraper method returns player names and schedule link 
@@ -61,8 +61,8 @@ class NBA::CLI
         items.array_of_player_names.each.with_index(1) do |player_name, index|
           puts "#{index}: #{player_name}"
         end
-          puts "\nSee the #{team.name} team schedule: https://www.nba.com".colorize(:blue)
-          puts "#{items.schedule_link}"
+          puts "\nSee the #{team.name} team schedule: ".colorize(:blue)
+          puts "https://www.nba.com#{items.schedule_link}"
           puts "\n-------------------------------------------------------------------------------"
         end 
         second_menu
@@ -81,6 +81,7 @@ class NBA::CLI
       puts "\nWould you like to exit? Type 'exit'\n"
       input = gets.strip.downcase
       if input == "yes"
+        puts "\nThese are the current NBA teams: ".colorize(:blue)
         list_teams
         choose_team
       elsif input == "start"
