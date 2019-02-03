@@ -19,7 +19,7 @@ class NBA::Team
   end 
   
   def add_items(items) #items is an object
-  self.scouting_report << items 
-  items.team = self 
+    self.scouting_report << items 
+    items.team = self 
   end 
 end 
