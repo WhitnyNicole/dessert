@@ -8,8 +8,7 @@ class NBA::CLI
     end 
   
     def menu
-      puts "\nWould you like to see the current teams?".colorize(:blue)
-      puts "\nPlease type yes or exit".colorize(:red)
+      puts "\nWould you like to see the current teams? Type 'yes' or 'exit'.".colorize(:blue)
       input = gets.strip.downcase
       case input #case statement 
       when "yes"
@@ -18,9 +17,9 @@ class NBA::CLI
         list_teams
         choose_team
       when "exit"
-        puts "\nGoodbye".colorize(:blue)
+        puts "\nGoodbye!"
       else
-        puts "\nSorry, I didn't understand that input".colorize(:blue)
+        puts "\nSorry, I didn't understand that input".colorize(:red)
         menu #recursion, which means we just restart at the menu ---> when there is bad user input
       end 
     end 
@@ -44,7 +43,7 @@ class NBA::CLI
         display_team_players(team)
       elsif input == "exit"
       else
-        puts "\nOops, please put in a valid input"
+        puts "\nOops, please put in a valid input".colorize(:red)
         choose_team
       end 
     end 
@@ -87,7 +86,7 @@ class NBA::CLI
       elsif input == "exit"
         puts "\nGoodbye!"
       else
-        puts "\nSorry I don't understand"
+        puts "\nSorry I don't understand".colorize(:red)
         second_menu
       end
     end 
