@@ -9,17 +9,17 @@ class NBA::CLI
   
     def menu
       puts "\nWould you like to see the current teams? Type 'yes' or 'exit'.".colorize(:blue)
-      input = gets.strip.downcase
-      case input #case statement 
-      when "yes"
-        puts "\nThese are the current NBA teams: ".colorize(:blue)
-        scrape_teams
-        list_teams
-        choose_team
-      when "exit"
-        puts "\nGoodbye!"
-      else
-        puts "\nSorry, I didn't understand that input".colorize(:red)
+      input = gets.strip.downcase #allows you to get the user's input
+      case input #case statement --> used when you want to compare same input to multiple things --> instead of if/else statement
+        when "yes"
+          puts "\nThese are the current NBA teams: ".colorize(:blue)
+          scrape_teams
+          list_teams
+          choose_team
+        when "exit"
+          puts "\nGoodbye!"
+        else
+          puts "\nSorry, I didn't understand that input".colorize(:red)
         menu #recursion, which means we just restart at the menu ---> when there is bad user input
       end 
     end 
