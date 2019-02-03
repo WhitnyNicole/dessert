@@ -49,9 +49,8 @@ class NBA::CLI
       end 
     end 
 
-    def display_team_players(team) #team represents a team object #scrape players 
+    def display_team_players(team) #team represents a team object #second level scrape returns players and schedule_link
       # "team" returns object ID, name and team url 
-      # second level scraper method returns player names and schedule link 
       NBA::Scraper.scrape_all_items(team) 
         puts "\n------------------------------------------------------------------------------"
         puts "\nGreat! Here's more info on the #{team.name}. "

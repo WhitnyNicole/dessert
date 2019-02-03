@@ -14,7 +14,7 @@ class NBA::Scraper
     end
   
 
-    def self.scrape_all_items(team) #class method 
+    def self.scrape_all_items(team) #using .self, this is a class method 
       #Creating an Instance
       # passing in team as an object so that I can add more attributes 
       #second scrape, scraping individual team's website to get players and schedule link 
@@ -26,20 +26,15 @@ class NBA::Scraper
       #instantiate a new one. Since we are inside of the each, we need to save as a variable so that you can add attributes ---> this is creating an instance 
   
       #Assigning Attributes 
-      
-      
       items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
       player.text #returns single player name
-      # binding.pry
       space = player.text.index(/[A-Z]/, 2)
       name_with_space = player.text.insert(space, ' ')
       end
-      
-      
-      
       # assign this to the items since array_of_player_names will be attr_accessor, which means that there is a method called array_of_player_names=  ----> this only works if it's attached to an instance of an item 
   
       items.schedule_link = card.css("team-info-stats")[0].next_element.css("a").attr("href").value
+      
       #Associating Objects
       team.add_items(items) 
       end 
