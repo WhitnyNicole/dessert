@@ -22,7 +22,7 @@ class NBA::Scraper
       profiles.each do |card|
   
       items = NBA::Items.new 
-      #instantiate a new one. Since we are inside of the each, we need to save as a variable so that you can add attributes ---> this is creating an instance 
+      #Instantiating, creating an instance. Since we are inside of the each ^ we need to save as a variable so that we can add attributes 
   
       #Assigning Attributes 
       items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
@@ -34,8 +34,8 @@ class NBA::Scraper
   
       items.schedule_link = card.css("team-info-stats")[0].next_element.css("a").attr("href").value
       
-      #Associating Objects
-      team.add_items(items) 
+      #Associating Objects: Team and Items --> telling team that this item is one of it's many items
+      team.add_items(items) #--> instance of a team, has object ID and attributes
       end 
     end 
   end 
