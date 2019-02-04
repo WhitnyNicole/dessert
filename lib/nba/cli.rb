@@ -54,7 +54,7 @@ class NBA::CLI
         puts "\n------------------------------------------------------------------------------"
         puts "\nGreat! Here's more info on the #{team.name}. "
         puts "\nSee the current players: ".colorize(:blue)
-        team.scouting_report.each do |items| #--->represents an array of profile objects 
+        team.scouting_report.each do |items| #--->represents an array of item objects 
         items.array_of_player_names.each.with_index(1) do |player_name, index|
           puts "#{index}: #{player_name}"
         end
