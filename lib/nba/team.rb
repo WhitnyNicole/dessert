@@ -3,10 +3,12 @@ class NBA::Team
   attr_accessor :name, :url
   attr_reader :scouting_report #has many relationship
   #we have two separate objects: team and items 
-      #setting up a has many relationship between team and items 
+  #setting up a has many relationship between team and items 
+  #reader/getter returns information stored in an instance such as @name
+  #writer/setter such as name=
     
- 
   @@all = []
+  
   def initialize(name, url)
     @name = name
     @url = "http://www.nba.com" + url 
@@ -14,7 +16,7 @@ class NBA::Team
     @@all << self #remembering the object
   end 
   
-  def self.all
+  def self.all #needed because of line 14 and 8. Allows us to call team.all and get back information
     @@all
   end 
   

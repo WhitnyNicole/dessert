@@ -7,8 +7,7 @@ class NBA::Scraper
       array_of_teams = section.css("div.team__list a") #returns all team names
       array_of_teams.map do |team| #represents one team name
         NBA::Team.new(team.text, team.attributes["href"].value)
-        #create a new instance of team object --> name and url 
-        binding.pry
+        #create a new instance of team object with name and url 
       end 
       #using .map, the return value is an array of objects (all the team names) --> returns new array 
       #using Object Oriented programming helps to keep track of both url and name (tied together) --> team object has 2 attributes (name/url)
