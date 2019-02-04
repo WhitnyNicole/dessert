@@ -4,11 +4,14 @@ class NBA::Scraper
       #open the url and scrape all the teams
       webpage = Nokogiri::HTML(open(url)) #opens webpage and must include require "nokogiri" and "open-uri" (envoronment file)
       section = webpage.css("div.team__list_wrapper") #list of teams
-      array_of_teams = section.css("div.team__list a") #returns team name
-      array_of_teams.map do |team|
+      array_of_teams = section.css("div.team__list a") #returns all team names
+      array_of_teams.map do |team| #represents one team name
         NBA::Team.new(team.text, team.attributes["href"].value)
+        #create a new instance of team object --> name and url 
+        binding.pry
       end 
-    #using .map, the return value is an array of objects (all the team names)
+      #using .map, the return value is an array of objects (all the team names) --> returns new array 
+      #using Object Oriented programming helps to keep track of both url and name (tied together) --> team object has 2 attributes (name/url)
     end
   
 
