@@ -15,7 +15,6 @@ class NBA::Scraper
   
 
     def self.scrape_all_items(team) 
-      #Creating an Instance
       # passing in team as an object so that I can add more attributes 
       #second scrape, scraping individual team's website to get players and schedule link 
       webpage = Nokogiri::HTML(open(team.url)) #this represents the url of my team object
@@ -28,8 +27,8 @@ class NBA::Scraper
       #Assigning Attributes 
       items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
       player.text #returns single player name
-      space = player.text.index(/[A-Z]/, 2)
-      name_with_space = player.text.insert(space, ' ')
+      space = player.text.index(/[A-Z]/, 2) #finding the second capital letter starting at third letter
+      name_with_space = player.text.insert(space, ' ') #adding a space to separate first and last names
       end
       # assign this to the items since array_of_player_names will be attr_accessor, which means that there is a method called array_of_player_names=  ----> this only works if it's attached to an instance of an item 
   
