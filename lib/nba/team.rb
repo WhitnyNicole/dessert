@@ -16,7 +16,7 @@ class NBA::Team
     @@all << self #remembering the object
   end 
   
-  def self.all #needed because of line 14 and 8. Allows us to call team.all and get back information
+  def self.all #needed because of @@all = [] and @@all << self. Allows us to call team.all and get back information
     @@all
   end 
   
