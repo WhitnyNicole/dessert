@@ -21,7 +21,7 @@ class NBA::Team
   end 
   
   def add_items(items) #items is an object
-    self.scouting_report << items #adding an instance of the items object to the scouting_report array 
+    self.scouting_report << items #adding an instance of the items object to the scouting_report array. Tells items about it's team  
     items.team = self #tell the team object about it's items 
   end 
 end 
