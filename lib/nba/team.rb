@@ -7,12 +7,12 @@ class NBA::Team
   #reader/getter returns information stored in an instance such as @name
   #writer/setter creates name, such as name=
     
-  @@all = []
+  @@all = [] #class variable that represents saving every instance of a class (i.e all the items for all of the teams)
   
   def initialize(name, url)
     @name = name
     @url = "http://www.nba.com" + url 
-    @scouting_report = []
+    @scouting_report = [] #every item object for that one instance of a team object
     @@all << self #remembering the object
   end 
   
@@ -21,7 +21,7 @@ class NBA::Team
   end 
   
   def add_items(items) #items is an object
-    self.scouting_report << items 
-    items.team = self 
+    self.scouting_report << items #adding an instance of the items object to the scouting_report array 
+    items.team = self #tell the team object about it's items 
   end 
 end 
