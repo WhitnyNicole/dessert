@@ -5,7 +5,7 @@ class NBA::Team
   #we have two separate objects: team and items 
   #setting up a has many relationship between team and items 
   #reader/getter returns information stored in an instance such as @name
-  #writer/setter such as name=
+  #writer/setter creates name, such as name=
     
   @@all = []
   

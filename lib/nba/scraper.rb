@@ -21,7 +21,7 @@ class NBA::Scraper
       profiles = webpage.css("div.team_profile") #returns team profile
       profiles.each do |card|
   
-      items = NBA::Items.new 
+      items = NBA::Items.new
       #Instantiating, creating an instance. Since we are inside of the each ^ we need to save as a variable so that we can add attributes 
   
       #Assigning Attributes 
@@ -32,7 +32,7 @@ class NBA::Scraper
       end
       # assign this to the items since array_of_player_names will be attr_accessor, which means that there is a method called array_of_player_names=  ----> this only works if it's attached to an instance of an item 
   
-      items.schedule_link = card.css("team-info-stats")[0].next_element.css("a").attr("href").value
+      items.schedule_link = card.css("team-info-stats")[0].next_element.css("a").attr("href").value #team schedule link
       
       #Associating Objects: Team and Items --> telling team that this item is one of it's many items
       team.add_items(items) #--> instance of a team, has object ID and attributes

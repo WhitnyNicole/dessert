@@ -9,7 +9,6 @@ class NBA::Items
   def initialize 
     @array_of_player_names = array_of_player_names
     @schedule_link = schedule_link
-    @team = team 
   end
   
   def self.all
