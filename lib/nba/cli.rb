@@ -25,7 +25,7 @@ class NBA::CLI
     end 
   
     def list_teams
-      NBA::Team.all.each.with_index(1) do |team, index| 
+      NBA::Team.all.each.with_index(1) do |team, index|
       #tell you what you want your index to start with. Team is an array that naturally starts at 0
       #team is a variable of each individual team
       #index is a variable that keeps track of your index
@@ -68,9 +68,11 @@ class NBA::CLI
     def scrape_teams 
       #this method is not scraping, it's only calling my scraper class to scrape
       url = "https://www.nba.com/teams" #this could move to scraper method
-      team = NBA::Scraper.scrape_all_teams(url) #this should make objects
+      NBA::Scraper.scrape_all_teams(url) if NBA::Team.all == [] 
+      #this should make objects
       #NBA::Scraper is how to call the scraper method 
-    end 
+      end 
+
    
     def second_menu
       puts "\nWould you like to look at another team? Type 'yes'\n"
