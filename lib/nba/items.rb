@@ -6,12 +6,12 @@ class NBA::Items
   @@all = []
   # @array_of_player_names = []
 
-  def initialize 
-    @array_of_player_names = array_of_player_names
-    @schedule_link = schedule_link
-  end
+  # def initialize 
+  #   @array_of_player_names = array_of_player_names
+  #   @schedule_link = schedule_link
+  # end
   
-  def self.all
-    @@all
-  end 
+  # def self.all
+  #   @@all
+  # end 
 end 
