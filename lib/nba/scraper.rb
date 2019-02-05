@@ -22,7 +22,7 @@ class NBA::Scraper
       profiles.each do |card|
   
       items = NBA::Items.new
-      #Instantiating, creating an instance. Since we are inside of the each ^ we need to save as a variable so that we can add attributes 
+      #Instantiating an object, creating an instance. Since we are inside of the each ^ we need to save as a variable so that we can add attributes 
   
       #Assigning Attributes 
       items.array_of_player_names = card.css("p.nba-player-index__name").map do |player|
