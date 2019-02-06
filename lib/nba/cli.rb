@@ -47,8 +47,8 @@ class NBA::CLI
         puts "\nGreat! Here's more info on the #{team.name}. "
         puts "\nSee the current players: ".colorize(:blue)
         team.scouting_report.each do |items| 
-        items.roster_array.each.with_index(1) do |player_name, index|
-          puts "#{index}: #{player_name}"
+        items.roster_array.each.with_index(1) do |player, index|
+          puts "#{index}: #{player}"
         end
           puts "\nSee the team schedule: ".colorize(:blue)
           puts "https://www.nba.com#{items.schedule_link}"
