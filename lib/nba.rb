@@ -12,6 +12,5 @@ require_relative "nba/items"
 
 
 
-#this is the environment file
 
 

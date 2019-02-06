@@ -7,7 +7,3 @@ NBA::CLI.new.start
 
 
 
-#this is the executable file
-#shebang line is the first line, must have this!
-#needs to require the environment file
-#.new is creating a new instance which allows us to chain on the instance method (.start)

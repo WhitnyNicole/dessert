@@ -1,17 +1,13 @@
 class NBA::Items
   
   attr_accessor :array_of_player_names, :schedule_link, :team
-  #"belongs to" relationship by adding :team as attr_accessor
-  
-  @@all = []
-  # @array_of_player_names = []
 
-  # def initialize 
-  #   @array_of_player_names = array_of_player_names
-  #   @schedule_link = schedule_link
-  # end
+  @@all = []
   
-  # def self.all
-  #   @@all
-  # end 
+  def initialize
+    @array_of_player_names = []
+  end 
+  
+  
+
 end 
