@@ -65,15 +65,12 @@ class NBA::CLI
    
     def second_menu
       puts "\nWould you like to look at another team? Type 'yes'\n"
-      puts "\nWould you like to go back to the beginning? Type 'start'\n"
       puts "\nWould you like to exit? Type 'exit'\n"
       input = gets.strip.downcase
       if input == "yes"
-        puts "\nThese are the current NBA teams: ".colorize(:blue)
+        puts "\nPlease select another NBA team: ".colorize(:blue)
         list_teams
         choose_team
-      elsif input == "start"
-        list_teams
       elsif input == "exit"
         puts "\nGoodbye!"
       else
