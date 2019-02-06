@@ -8,6 +8,7 @@ class NBA::Items
     @array_of_player_names = []
   end 
   
-  
-
+  def add_player(array_of_player_names)
+    @add_player << array_of_player_names
+  end 
 end 
