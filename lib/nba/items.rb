@@ -1,14 +1,14 @@
 class NBA::Items
   
-  attr_accessor :array_of_player_names, :schedule_link, :team
+  attr_accessor :roster_array, :schedule_link, :team
 
   @@all = []
   
   def initialize
-    @array_of_player_names = []
+    @roster_array = []
   end 
   
-  def add_player(array_of_player_names)
-    @add_player << array_of_player_names
+  def add_player(roster_array)
+    @add_player << roster_array
   end 
 end 

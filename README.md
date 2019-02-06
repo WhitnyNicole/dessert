@@ -1,12 +1,16 @@
 # Nba
 
-This Ruby Gem provides a CLI to view the National Basketball Association's (NBA) current teams and each team's current players and associated schedule as per the NBA.com
+This Ruby Gem provides a CLI to view the National Basketball Association's (NBA) current teams and each team's current players and associated schedule as per the NBA Website http://www.nba.com/.
 
 ## Installation
 
 To clone down this repo, please visit https://github.com/WhitnyNicole/nba. Click the link along the right side that says clone or download. It will open up a small box that will display the link. You want to make sure you're copying the SSH link and not the HTTPS link.
 
-Once you have this link, you can use the clone command to copy it to your working environment. In your working environment, run git clone git@github.com:WhitnyNicole/nba.git. This will copy the lab to your working environment. Ensure you change directories into the lab with cd nba/ and then run the lab by entering ./bin/nba in your terminal. 
+Once you have this link, you can use the clone command to copy it to your working environment. In your working environment, run git clone git@github.com:WhitnyNicole/nba.git. This will copy the lab to your working environment. Ensure you change directories into the lab by entering cd nba/ into your terminal.
+
+## Usage
+
+Run by entering ./bin/nba in your terminal. 
     
 
 ## Development
